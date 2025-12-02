@@ -1,6 +1,6 @@
 package com.example.demospringboot.entity;
 import jakarta.persistence.Entity;
-
+//halo tes
 @Entity
 public class Mobil extends Kendaraan {
     private String jenis;
