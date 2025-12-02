@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Person Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    
+    <script th:src="@{/js/pass.js}"></script>
+        
+    </head>
+<body class="sb-nav-fixed">
+    
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="/person">Person</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="layoutSidenav">
+        
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link act  ive" href="/petugas">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        
+                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Menu
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/penyewa">Data Penyewa</a>
+                                <a class="nav-link" href="/kendaraan">Data Kendaraan</a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    <span th:text="${logUser?.getName()}">User</span>
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Dashboard Petugas</h1>
+ <div class="first-box">
+ <h2>Person List</h2>
+ <table class="styled-table">
+ <thead>
+ <tr><th>No</th><th>Kode</th><th>Name</th><th>Description</th></tr>
+ </thead>
+ <tbody th:each="d, no : ${personList}">
+ <tr><td th:text="${no.count}"></td>
+ <td><a th:href="@{/person/{id}(id=${d.getId()})}" 
+th:text="${d.getKode()}"></a></td>
+ <td th:text="${d.getName()}"></td>
+ <td th:text="${d.getNoHP()}"></td></tr>
+ </tbody>
+ </table>
+ </div>
+ <div class="second-box">
+ <div id="feedback-form">
+ <h2 class="header">Form Management</h2>
+ <form th:action="@{/person/submit/{id}(id=${personRec?.getId()})}" 
+method="post" th:object="${personInfo}" class="form-group">
+ <label for="id" class="form-label">ID</label>
+ <input type="number" id = "id" name = "id"
+ th:value="${personRec != null} ? ${personRec.getId()}: '0'"
+ readonly />
+ <label for="kode" class="form-label">Kode</label>
+ <input type="text" id="kode" name="kode"
+ th:value="${personRec?.getKode()}" 
+required />
+ <label for="name" class="form-label">Name</label>
+ <input type="text" id="name" name="name"
+ th:value="${personRec?.getName()}" 
+required />
+ <label for="desc" class="form-label">No HP</label>
+ <textarea type="text" id="noHP" name="noHP"
+ th:text="${personRec?.getNoHP()}">
+ </textarea>
+ <button type="submit" class="btn btn-primary" name="add">Add</button>
+ <button type="submit" class="btn btn-primary" name="edit">Edit</button>
+ <button type="submit" class="btn btn-primary" name="delete">Delete</button>
+ </form>
+ </div>
+ </div>
+             </main>
+            
+            </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    </body>
+</html>

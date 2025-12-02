@@ -1,0 +1,411 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		<link th:href="@{/css/tiny-slider.css}" rel="stylesheet">
+		<link th:href="@{/css/style.css}" rel="stylesheet">
+		
+
+		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+	</head>
+
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="index.html">GoRent<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" th:href="@{/rentalkendaraan}">Home</a>
+						</li>
+						<li><a class="nav-link" th:href="@{/rentalbus}">Bus</a></li>
+						<li><a class="nav-link" th:href="@{/rentalmobil}">Mobil</a></li>
+						<li><a class="nav-link" th:href="@{/rentalmotor}">Motor</a></li>
+						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+					</ul>
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+								<img th:src="@{/Gambar/user.svg}" alt="User">
+							</a>
+
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+								<li><a class="dropdown-item" href="#">Profile</a></li>
+								<li><a class="dropdown-item" href="#">Setting</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" th:href="@{/keluar}">Logout</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a class="nav-link" href="cart.html">
+								<img th:src="@{/Gambar/cart.svg}" alt="Cart">
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+				
+		</nav>
+		<!-- End Header/Navigation -->
+
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Sewa Kendaraan Mudah, Cepat, dan Terpercaya.</h1>
+								<p class="mb-4">Pilih kendaraan favorit Anda sekarang dan mulailah perjalanan tanpa ribet. Kualitas armada dan kepuasan pelanggan adalah komitmen kami.</p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img th:src="@{/Gambar/mobil-rental.png}" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 class="mb-4 section-title">Pusat Kendaraan Terlengkap & Tepercaya.</h2>
+						<p class="mb-4">Lupakan kerumitan. Pilih unit favorit Anda dari berbagai kategori yang tersedia dan mulailah perjalanan Anda hari ini.</p>
+						<p><a href="shop.html" class="btn">Explore</a></p>
+					</div> 
+					<!-- End Column 1 -->
+
+					<!-- Start Column 2 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" th:href="@{/rentalbus}">
+							<img th:src="@{/Gambar/bus1.png}" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Bus</h3><br>
+							<strong class="product-price"><p>Harga Mulai Dari</p></strong>
+							<strong class="product-price">Rp.5.000.000 / hari</strong>
+
+							<span class="icon-cross">
+								<img th:src="@{/Gambar/cross.svg}" class="img-fluid">
+							</span>
+						</a>
+					</div> 
+					<!-- End Column 2 -->
+
+					<!-- Start Column 3 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" th:href="@{/rentalmobil}">
+							<img th:src="@{/Gambar/fortuner.png}" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Mobil</h3>
+							<strong class="product-price"><p>Harga Mulai Dari</p></strong>
+							<strong class="product-price">Rp.1.000.000 / hari</strong>
+
+							<span class="icon-cross">
+								<img th:src="@{/Gambar/cross.svg}" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 3 -->
+          
+					<!-- Start Column 4 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" th:href="@{/rentalmotor}">
+							<img th:src="@{/Gambar/vario.png}" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Motor</h3>
+							<strong class="product-price"><p>Harga Mulai Dari</p></strong>
+							<strong class="product-price">Rp.50.000 / hari</strong>
+
+							<span class="icon-cross">
+								<img th:src="@{/Gambar/cross.svg}" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 4 -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
+
+		<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Mengapa Memilih Kami?</h2>
+						<p>Kami berkomitmen memberikan pengalaman menyewa kendaraan terbaik. Keamanan, kenyamanan, dan kepuasan Anda adalah prioritas utama kami.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img th:src="@{/Gambar/truck.svg}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Armada Terbaru & Prima</h3>
+									<p>Kami selalu menyediakan unit kendaraan tahun muda yang terawat secara berkala. Nikmati perjalanan Anda dengan mobil yang bersih, nyaman, dan minim kendala.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img th:src="@{/Gambar/bag.svg}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Proses Cepat & Mudah</h3>
+									<p>Pesan dan sewa mobil hanya dalam beberapa langkah sederhana. Hemat waktu Anda dengan proses administrasi yang efisien dan tanpa ribet.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img th:src="@{/Gambar/support.svg}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Layanan Bantuan 24/7</h3>
+									<p>Tim support kami siap siaga 24 jam sehari, 7 hari seminggu. Kami siap membantu Anda kapan pun, di mana pun Anda membutuhkan.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img th:src="@{/Gambar/return.svg}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Jaminan Asuransi All-Risk</h3>
+									<p>Perjalanan lebih tenang dengan perlindungan asuransi All-Risk (semua risiko) pada setiap unit.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img th:src="@{Gambar/transaksi.png}" height="300px" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+		<!-- Start Testimonial Slider -->
+		<div class="testimonial-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title">Testimonials</h2>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-lg-12">
+						<div class="testimonial-slider-wrap text-center">
+
+							<div id="testimonial-nav">
+								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+							</div>
+
+							<div class="testimonial-slider">
+								
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Kendaraan yang disewa selalu dalam kondisi prima dan sangat bersih, persis seperti yang diiklankan! Proses pengambilannya cepat dan customer service-nya sangat membantu. Perjalanan dinas jadi sangat nyaman dan tanpa khawatir. Benar-benar recommended!"&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img th:src="@{Gambar/ceo.png}" alt="Bima Satria" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Bima Satria</h3>
+													<span class="position d-block mb-3">Profesional Muda, Jakarta</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Saya butuh mobil mendadak untuk perjalanan keluarga, dan GoRent menyelamatkan kami! Proses pemesanan online sangat mudah, dan mobil sudah siap tepat waktu. Harga transparan tanpa biaya tersembunyi. Layanan rental yang paling praktis yang pernah saya coba!&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img th:src="@{Gambar/iburumahtangga.png}" alt="Maria Jones" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Fitriana Dewi</h3>
+													<span class="position d-block mb-3">Ibu Rumah Tangga, Semarang</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Keamanan adalah prioritas saat menyewa, dan GoRent memberikan jaminan itu. Kendaraannya terawat, dan dukungan 24/7 mereka sangat responsif. Saya merasa tenang saat menjelajahi kota baru karena tahu ada tim yang standby. Layanan terbaik untuk petualangan!&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img th:src="@{Gambar/pebisnis.jpg}" alt="Anton Susanto" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Anton Susanto</h3>
+													<span class="position d-block mb-3">Pelaku Bisnis, Surabaya</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Testimonial Slider -->
+
+		<!-- Start Footer Section -->
+		<footer class="footer-section">
+			<div class="container relative">
+
+				<div class="row g-5 mb-5">
+					<div class="col-lg-4">
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">GoRent<span>.</span></a></div>
+						<p class="mb-4">GoRent adalah solusi rental kendaraan modern Anda. Kami menyediakan armada terbaru dan terawat, terjamin keamanan serta kenyamanannya untuk setiap kebutuhan perjalanan, dari liburan keluarga hingga perjalanan dinas. Proses sewa mudah, cepat, dan didukung layanan bantuan 24 jam.</p>
+
+						<ul class="list-unstyled custom-social">
+							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-8">
+						<div class="row links-wrap">
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">About us</a></li>
+									<li><a href="#">Services</a></li>
+									<li><a href="#">Blog</a></li>
+									<li><a href="#">Contact us</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Support</a></li>
+									<li><a href="#">Knowledge base</a></li>
+									<li><a href="#">Live chat</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Our team</a></li>
+									<li><a href="#">Leadership</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Nordic Chair</a></li>
+									<li><a href="#">Kruzo Aero</a></li>
+									<li><a href="#">Ergonomic Chair</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>
+									document.write(new Date().getFullYear());
+								</script> GoRent<span>.</span></p>
+						</div>
+
+						<div class="col-lg-6 text-center text-lg-end">
+							<ul class="list-unstyled d-inline-flex ms-auto">
+								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
+
+
+		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/tiny-slider.js"></script>
+		<script src="/js/custom.js"></script>
+
+	</body>
+
+</html>

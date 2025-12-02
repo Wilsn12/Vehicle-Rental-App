@@ -1,0 +1,187 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rental Kendaraan</title>
+   		<!-- Bootstrap CSS -->
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/tiny-slider.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Rental<span>.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{/rentalkendaraan}">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="container">
+        <h1 class="text-white mt-4">Rental Kendaraan</h1>
+    </div>
+</div>
+
+<div class="untree_co-section before-footer-section">
+    <div class="container">
+
+        <!-- FORM RENTAL -->
+        <div class="card p-4 mb-4 shadow">
+
+            <h4 th:if="${rentalInfo == null or rentalInfo.rentalID == null}">Tambah Rental</h4>
+            <h4 th:unless="${rentalInfo == null or rentalInfo.rentalID == null}">Edit Rental</h4>
+
+            <!-- FORM TAMBAH -->
+            <form th:if="${rentalInfo == null or rentalInfo.rentalID == null}"
+                  th:action="@{/rental/submit}" th:object="${rentalInfo}" method="post">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>ID Rental</label>
+                        <input type="text" th:field="*{rentalID}" class="form-control" placeholder="R001" required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Penyewa</label>
+                      <select class="form-control" name="penyewaKode" required>
+                            <option value="">-- Pilih Penyewa --</option>
+                            <option th:each="p : ${penyewaList}"
+                                    th:value="${p.kode}"
+                                    th:text="${p.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Kendaraan</label>
+                       <select class="form-control" name="kendaraanPlat" required>
+                            <option value="">-- Pilih Kendaraan --</option>
+                            <option th:each="k : ${kendaraanList}"
+                                    th:value="${k.plat}"
+                                    th:text="${k.merk + ' ' + k.model + ' (' + k.plat + ')'}">
+                            </option>
+                        </select>
+                                            </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Lama Sewa (hari)</label>
+                        <input type="number" th:field="*{lamaSewa}" class="form-control" min="1" required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Total Biaya</label>
+                        <input type="text" th:field="*{totalBiaya}" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark mt-3">Simpan</button>
+            </form>
+
+            <!-- FORM EDIT -->
+            <form th:action="@{/rental/submit/{id}(id=${rentalInfo.rentalID})}"
+                th:object="${rentalInfo}" method="post">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>ID Rental</label>
+                        <input type="text" th:field="*{rentalID}" class="form-control" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Penyewa</label>
+                        <select class="form-control" name="penyewaKode" required>
+                                <option value="">-- Pilih Penyewa --</option>
+                                <option th:each="p : ${penyewaList}"
+                                        th:value="${p.kode}"
+                                        th:text="${p.name}"
+                                        th:selected="${p.kode == rentalInfo.penyewa?.kode}">
+                                </option>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Kendaraan</label>
+                        <select class="form-control" name="kendaraanPlat" required>
+                            <option value="">-- Pilih Kendaraan --</option>
+                                <option th:each="k : ${kendaraanList}"
+                                        th:value="${k.plat}"
+                                        th:text="${k.merk + ' ' + k.model + ' (' + k.plat + ')'}"
+                                        th:selected="${k.plat == rentalInfo.kendaraan?.plat}">
+                                </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Lama Sewa (hari)</label>
+                        <input type="number" th:field="*{lamaSewa}" class="form-control" min="1" required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Total Biaya</label>
+                        <input type="text" th:field="*{totalBiaya}" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark mt-3">Update</button>
+            </form>
+
+        </div>
+
+        <!-- TABEL RENTAL -->
+        <div class="card p-4 shadow">
+            <h4>Daftar Rental</h4>
+
+            <table class="table table-bordered mt-3">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Penyewa</th>
+                    <th>Kendaraan</th>
+                    <th>Lama Sewa</th>
+                    <th>Total Biaya</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="r : ${rentalList}">
+                    <td th:text="${r.rentalID}"></td>
+                    <td th:text="${r.penyewa != null ? r.penyewa.name : ''}"></td>
+                    <td th:text="${r.kendaraan != null ? r.kendaraan.merk + ' ' + r.kendaraan.model : ''}"></td>
+                    <td th:text="${r.lamaSewa + ' hari'}"></td>
+                    <td th:text="${'Rp ' + r.totalBiaya}"></td>
+                    <td>
+                        <a th:href="@{/rental/{id}(id=${r.rentalID})}" class="btn btn-warning btn-sm">Edit</a>
+                        <a th:href="@{/rental/delete/{id}(id=${r.rentalID})}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Hapus data ini?')">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/tiny-slider.js}"></script>
+<script th:src="@{/js/custom.js}"></script>
+
+</body>
+</html>

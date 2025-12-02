@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="container">
+    <div class="frame">
+        <div style="text-align: center; padding-top: 40px; margin-bottom: 20px;">
+            <h2 style="color: white; font-weight: 700;">Silakan Login</h2>
+        </div>
+
+        <div class="form-content">
+            <form class="form-signin" th:action="@{/validateLogin}" method="post">
+                
+                <div th:if="${param.error}" style="color: red; text-align: center; margin-bottom: 10px; font-weight: bold;">
+                    Login Gagal! Cek Username/Password.
+                </div>
+
+                <label for="kode">Kode User</label>
+                <input class="form-styling" type="text" name="kode" placeholder="Masukkan Kode" required/>
+                
+                <label for="password">Password</label>
+                <input class="form-styling" type="password" name="password" placeholder="" required/>
+
+                <div class="btn-animate">
+                    <button type="submit" class="btn-signin">MASUK SEKARANG</button>
+                </div>
+                <p>Belum punya akun? <a href="/registerpenyewa">Daftar Disini</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

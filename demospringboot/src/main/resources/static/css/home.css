@@ -1,0 +1,1026 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(0,0,0,0.6);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  color: orange;
+}
+
+/* Hero Section */
+.hero {
+  background: url("../Gambar/pexels-kin-pastor-251088-777059.jpg")center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 5%;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  max-width: 600px;
+  z-index: 1;
+  text-align: left;   
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.hero-circle {
+  position: absolute;
+  right: 15%;
+  bottom: 50%;
+  z-index: 2;
+}
+.hero-circle button {
+  background: #fff;
+  border: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.hero-circle button:hover {
+  transform: scale(1.1);
+}
+
+/* Search Box */
+.search-box {
+  background: #fff;
+  padding: 2rem;
+  margin: -50px auto 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  max-width: 900px;
+  position: relative;
+  z-index: 10;
+}
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tab {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #eee;
+  transition: all 0.2s;
+}
+.tab.active, .tab:hover {
+  background: orange;
+  color: #000;
+}
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+.search-form input,
+.search-form select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+.search-form button {
+  background: orange;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.search-form button:hover {
+  background: white;
+}
+
+.adventure-section {
+  padding: 80px 0;
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.col-left, .col-right {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  border-radius: 6px;
+}
+
+.card * {
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  background: orange;
+  display: inline-block;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bg1 { background-image: url('../Gambar/disco.jpeg');}
+.bg2 { background-image: url('../Gambar/chinatown.jpg'); }
+.bg3 { background-image: url('../Gambar/tour.jpeg'); }
+.bg4 { background-image: url('../Gambar/ferris.jpg'); }
+
+.section-subtitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  color: orange;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.col-right h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.col-right p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.btn-orange {
+  display: inline-block;
+  background: orange;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-orange:hover {
+  background: orange;
+}
+
+/* Section 2 */
+.Section2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text2 {
+  width: 50%;
+}
+
+.sub2 {
+  color: #ff6f00;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.text2 h1 {
+  line-height: 1.3;
+  color: #1b1b1b;
+  margin-bottom: 20px;
+}
+
+.travel-text h1 {
+  color: #2a2a2a;
+  font-weight: 700;
+}
+
+.desc2 {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-1 {
+  background-color: orange;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-1:hover {
+  background-color: #e67e22;
+}
+
+.btn-2 {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-2 i {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.card-image {
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: -15px;
+  left: 12px;
+  background-color: orange;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  color: #222;
+  margin-bottom: 5px;
+}
+
+
+.features {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.desc {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-3,
+.btn-4 {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  text-align: center;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.btn-3 {
+  background-color: orange;
+  color: white;
+}
+
+.btn-3:hover {
+  background-color: #e67e22;
+}
+
+.btn-4 {
+  background-color: #222;
+  color: white;
+}
+
+.btn-4:hover {
+  background-color: #000;
+}
+
+/* Section 3 */
+.destinations-section {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 0;
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 60px;
+}
+
+.destination-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.destination-card {
+    position: relative;
+    width: 260px;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.destination-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.country-tag {
+    position: absolute;
+    top: 0; 
+    left: 15px;
+    background-color: orange;
+    color: white;
+    padding: 8px 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 0.9em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 5;
+}
+
+.view-tours-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    background-color: orange;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    z-index: 5;
+}
+
+.view-tours-btn:hover {
+    background-color: orange;
+}
+
+.destinations-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: url('../Gambar/bgsg.jpg') no-repeat center bottom;
+    background-size: cover;
+    z-index: 1;
+}
+
+/* Section 4 */
+.tour-destination-section {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.tour-destination-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+.tour-destination-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: orange;
+    border-radius: 2px;
+}
+
+.tour-destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 25px; 
+    max-width: 1050px; 
+    margin: 0 auto;
+}
+
+.tour-card-new {
+    width: 280px; 
+    height: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card-new:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tour-card-image-section {
+    position: relative;
+    height: 800px; 
+    overflow: hidden;
+}
+
+.tour-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.price-tag-new {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    background-color: orange;
+    color: white;
+    padding: 6px 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 0.85em;
+    font-weight: 600;
+    z-index: 3;
+}
+
+.tour-card-bottom-section {
+    background-color: #fff;
+    height: 100%; 
+    flex-grow: 1; 
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding-top: 85px; 
+}
+
+.tour-card-info-overlay {
+    position: absolute;
+    height: 50%;
+    bottom: 55px; 
+    left: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    z-index: 4;
+}
+
+.tour-card-info-overlay h3.days-tour {
+    font-size: 1em;
+    color: orange;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.tour-card-info-overlay h3.location-title {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.tour-card-info-overlay p.location-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.tour-card-info-overlay p.location-details i {
+    margin-right: 5px;
+    color: orange;
+}
+
+.tour-features-new {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.tour-features-new i {
+    margin-right: 3px;
+    color: orange;
+}
+
+.feature-detail {
+    margin-left: auto;
+    color: orange;
+    font-weight: 600;
+}
+
+/* Section 5 */
+.blog-section {
+    padding: 80px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.section-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: orange;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.section-subheading {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 60px;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.post-item {
+    width: 320px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-thumb { 
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-thumb .bg-image {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    display: block;
+}
+
+.post-date {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    background-color: orange;
+    color: white;
+    padding: 10px 15px;
+    border-bottom-right-radius: 8px;
+    text-align: center;
+    line-height: 1.2;
+    z-index: 2;
+}
+
+.post-date .day {
+    display: block;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.post-date .month-year {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.post-base { 
+    background-color: #fff;
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-top: 60px;
+}
+
+.post-box { 
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    text-align: left;
+    z-index: 3;
+}
+
+.post-box .title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.post-box .btn-read {
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.post-box .btn-read:hover {
+    background-color: orange;
+}
+
+/* Section 6 */
+footer {
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+    background: url('../Gambar/bgputih.png') center/cover no-repeat;
+}
+
+.foot-top {
+    padding: 80px 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.foot-top .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.foot-top h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.col-about {
+    width: 28%;
+    margin-bottom: 30px;
+    z-index: 2;
+    position: relative;
+}
+
+.col-about p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 8px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: orange;
+}
+
+.col-info, .col-exp {
+    width: 18%;
+    margin-bottom: 30px;
+    z-index: 2;
+    position: relative;
+}
+
+.col-info ul, .col-exp ul {
+    list-style: none;
+}
+
+.col-info ul li, .col-exp ul li {
+    margin-bottom: 12px;
+}
+
+.col-info ul li a, .col-exp ul li a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.col-info ul li a:hover, .col-exp ul li a:hover {
+    color: orange;
+}
+
+.col-qna {
+    width: 28%;
+    margin-bottom: 30px;
+}
+
+.col-qna p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.col-qna p i {
+    color: orange;
+    margin-right: 8px;
+}
+
+.footer-dark {
+  background-color: #0b0c10;
+  color: #ccc;
+  padding: 15px 20px;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.footer-left a {
+  color: #f8b400;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-left a:hover {
+  color: orange;
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-right a:hover {
+  color: orange;
+}
+
+.call-to-action {
+    background: url('../Gambar/bay.jpeg');
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background-color: orange;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: orange;
+}
+
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+  .col-left {
+    grid-template-columns: 1fr;
+  }
+}
+

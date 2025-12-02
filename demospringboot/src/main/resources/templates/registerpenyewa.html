@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Penyewa</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="container">
+    <div class="frame" style="height: 750px; width: 430px;"> 
+        
+        <div style="text-align: center; padding-top: 40px;">
+            <h2 style="color: #ffffff; font-weight: 300; text-transform: uppercase;">Register Penyewa</h2>
+        </div>
+
+        <form class="form-signin" th:action="@{/registerpenyewa/submit}" th:object="${penyewaInfo}" method="post" 
+              style="padding-top: 20px; height: auto;">
+            
+            <input type="hidden" name="id" th:value="${penyewaInfo.id != null} ? ${penyewaInfo.id} : 0" />
+
+            <label for="kode">Kode</label>
+            <input class="form-styling" type="text" name="kode" th:value="${penyewaInfo?.getKode()}" placeholder="Buat Username Unik" required/>
+
+            <label for="name">Nama Lengkap</label>
+            <input class="form-styling" type="text" name="name" th:value="${penyewaInfo?.getName()}" required/>
+
+            <label for="password">Password</label>
+            <input class="form-styling" type="password" name="password" th:value="${penyewaInfo?.getPassword()}" required/>
+
+            <label for="alamat">Alamat</label>
+            <input class="form-styling" type="text" name="alamat" th:value="${penyewaInfo?.getAlamat()}" />
+
+            <label for="noSIM">Nomor SIM</label>
+            <input class="form-styling" type="text" name="noSIM" th:value="${penyewaInfo?.getNoSim()}" />
+
+            <label for="noHP">No HP</label>
+            <input class="form-styling" type="text" name="noHP" th:value="${penyewaInfo?.getNoHP()}" />
+
+            <div class="btn-animate">
+                <button type="submit" class="btn-signin">DAFTAR AKUN</button>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <a th:href="@{/login}" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 12px;">&larr; Kembali ke Login</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

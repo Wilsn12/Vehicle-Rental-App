@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Bus</title>
+
+    <!-- CSS Dashboard -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom CSS Bus -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/data.css}" />
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+
+    <!-- TOP NAV -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="/dashboard">Dashboard</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="sb-sidenav-menu-heading">Core</div>
+
+                        <a class="nav-link" th:href="@{/petugas}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Petugas
+                        </a>
+
+                        <a class="nav-link" href="/dashboard">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+
+                        <div class="sb-sidenav-menu-heading">Kendaraan</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                           data-bs-target="#collapseKendaraan" aria-expanded="false">
+                            <div class="sb-nav-link-icon"><i class="fas fa-bus"></i></div>
+                            Data Kendaraan
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+
+                        <div class="collapse" id="collapseKendaraan" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" th:href="@{/bus}">Bus</a>
+                                <a class="nav-link" th:href="@{/mobil}">Mobil</a>
+                                <a class="nav-link" th:href="@{/motor}">Motor</a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Petugas Sistem
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div id="layoutSidenav_content">
+            <main class="container-fluid px-4">
+
+                <h1 class="mt-4">Data Bus</h1>
+                <hr>
+
+                <!-- FORM BUS -->
+                <h2>Form Bus</h2>
+                <div class="form-wrapper">
+                    <form th:action="@{/bus/save}" th:object="${bus}" method="post">
+
+                        <input type="hidden" th:field="*{id}" />
+
+                        <label>Plat Nomor:</label>
+                        <input type="text" th:field="*{plat}" required />
+
+                        <label>Model:</label>
+                        <input type="text" th:field="*{model}" required />
+
+                        <label>Merk:</label>
+                        <input type="text" th:field="*{merk}" required />
+
+                        <label>Tahun:</label>
+                        <input type="number" th:field="*{tahun}" required />
+
+                        <label>Status:</label>
+                        <input type="text" th:field="*{status}" required />
+
+                        <label>BBM:</label>
+                        <input type="text" th:field="*{BBM}" required />
+
+                        <label>Harga Sewa:</label>
+                        <input type="number" th:field="*{harga}" required />
+
+                        <label>Warna:</label>
+                        <input type="text" th:field="*{warna}" required />
+
+                        <label>Jumlah Kursi:</label>
+                        <input type="number" th:field="*{jumlah}" required />
+
+                        <label>Fitur Bus:</label>
+                        <input type="text" th:field="*{fitur}" required />
+
+                        <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- TABLE BUS -->
+                <h2>Daftar Bus</h2>
+
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Plat</th>
+                            <th>Model</th>
+                            <th>Merk</th>
+                            <th>Tahun</th>
+                            <th>Status</th>
+                            <th>BBM</th>
+                            <th>Harga</th>
+                            <th>Warna</th>
+                            <th>Jumlah</th>
+                            <th>Fitur</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="b : ${busList}">
+                            <td th:text="${b.id}"></td>
+                            <td th:text="${b.plat}"></td>
+                            <td th:text="${b.model}"></td>
+                            <td th:text="${b.merk}"></td>
+                            <td th:text="${b.tahun}"></td>
+                            <td th:text="${b.status}"></td>
+                            <td th:text="${b.BBM}"></td>
+                            <td th:text="${b.harga}"></td>
+                            <td th:text="${b.warna}"></td>
+                            <td th:text="${b.jumlah}"></td>
+                            <td th:text="${b.fitur}"></td>
+
+                            <td>
+                                <a class="btn btn-warning btn-sm"
+                                   th:href="@{'/bus/edit/' + ${b.id}}">Edit</a>
+
+                                <a class="btn btn-danger btn-sm"
+                                   th:href="@{'/bus/delete/' + ${b.id}}"
+                                   onclick="return confirm('Hapus data?')">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </main>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4 text-center">
+                    <div class="text-muted">Copyright © Your Website 2025</div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JS Dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+</html>
